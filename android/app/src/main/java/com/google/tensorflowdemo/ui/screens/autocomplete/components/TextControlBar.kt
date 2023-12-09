@@ -18,6 +18,8 @@ package com.google.tensorflowdemo.ui.screens.autocomplete.components
 
 import android.content.res.Configuration.UI_MODE_NIGHT_NO
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -43,6 +45,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -87,7 +90,12 @@ fun TextEditBar(
     barState: TextEditBarState.Editing,
     modifier: Modifier = Modifier
 ) {
-    Row(
+    val customColor = Color(0xFF0CD3FB)
+    Box(
+            modifier = modifier
+                    .fillMaxWidth()
+                    .background(Color.DarkGray)
+    ) {Row(
         modifier = modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -95,7 +103,7 @@ fun TextEditBar(
             onClick = onClearClick,
             enabled = barState.clearEnabled,
             colors = IconButtonDefaults.iconButtonColors(
-                contentColor = MaterialTheme.colorScheme.tertiary
+                contentColor = Color.White
             ),
             modifier = Modifier.padding(start = 12.dp)
         ) {
@@ -109,12 +117,12 @@ fun TextEditBar(
             onClick = onGenerateClick,
             enabled = barState.generateEnabled,
             border = if (barState.generateEnabled) {
-                BorderStroke(1.dp, MaterialTheme.colorScheme.primary)
+                BorderStroke(1.dp, customColor)
             } else {
                 BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = .38f))
             },
             colors = ButtonDefaults.outlinedButtonColors(
-                contentColor = MaterialTheme.colorScheme.tertiary
+                contentColor = Color.White
             ),
             modifier = Modifier
                 .height(40.dp)
@@ -125,12 +133,14 @@ fun TextEditBar(
                     strokeWidth = 2.dp,
                     modifier = Modifier
                         .scale(.5f)
-                        .offset(0.dp, (-8).dp)
+                        .offset(0.dp, (-8).dp),
+                        color = customColor
                 )
             } else {
                 Text(
                     text = stringResource(R.string.generate_cta),
-                    modifier = Modifier.padding(horizontal = 32.dp)
+                    modifier = Modifier.padding(horizontal = 32.dp),
+                            color = Color.White
                 )
             }
         }
@@ -139,7 +149,7 @@ fun TextEditBar(
             onClick = onCopyClick,
             enabled = barState.copyEnabled,
             colors = IconButtonDefaults.iconButtonColors(
-                contentColor = MaterialTheme.colorScheme.tertiary
+                contentColor = Color.White
             ),
             modifier = Modifier.padding(end = 12.dp)
         ) {
@@ -147,6 +157,7 @@ fun TextEditBar(
                 imageVector = Icons.Outlined.ContentCopy,
                 contentDescription = stringResource(R.string.copy_cta)
             )
+        }
         }
     }
 }
@@ -157,38 +168,45 @@ fun SuggestionControlBar(
     onAccept: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Row(modifier = modifier.fillMaxWidth()) {
-        TextButton(
-            onClick = onRetry,
-            modifier = Modifier.padding(start = 16.dp)
-        ) {
-            Text(
-                text = stringResource(R.string.reject_suggestion_cta),
-                color = MaterialTheme.colorScheme.tertiary
-            )
-        }
-        Spacer(modifier = Modifier.weight(1f))
-        OutlinedButton(
-            onClick = onAccept,
-            border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary),
-            modifier = Modifier.padding(end = 12.dp)
-        ) {
-            Row {
-                Icon(
-                    imageVector = Icons.Default.Check,
-                    tint = MaterialTheme.colorScheme.tertiary,
-                    contentDescription = null,
-                    modifier = Modifier
-                        .scale(.8f)
-                        .padding(start = 32.dp)
-                )
+    val customColor = Color(0xFF0CD3FB)
+    Box(
+            modifier = modifier
+                    .fillMaxWidth()
+                    .background(Color.DarkGray)
+    ) {
+        Row(modifier = modifier.fillMaxWidth()) {
+            TextButton(
+                    onClick = onRetry,
+                    modifier = Modifier.padding(start = 16.dp)
+            ) {
                 Text(
-                    text = stringResource(R.string.accept_suggestion_cta),
-                    color = MaterialTheme.colorScheme.tertiary,
-                    modifier = Modifier.padding(start = 8.dp, end = 32.dp, top = 2.dp)
+                        text = stringResource(R.string.reject_suggestion_cta),
+                        color = Color.White
                 )
             }
+            Spacer(modifier = Modifier.weight(1f))
+            OutlinedButton(
+                    onClick = onAccept,
+                    border = BorderStroke(1.dp, customColor),
+                    modifier = Modifier.padding(end = 12.dp)
+            ) {
+                Row {
+                    Icon(
+                            imageVector = Icons.Default.Check,
+                            tint = Color.White,
+                            contentDescription = null,
+                            modifier = Modifier
+                                    .scale(.8f)
+                                    .padding(start = 32.dp)
+                    )
+                    Text(
+                            text = stringResource(R.string.accept_suggestion_cta),
+                            color = Color.White,
+                            modifier = Modifier.padding(start = 8.dp, end = 32.dp, top = 2.dp)
+                    )
+                }
 
+            }
         }
     }
 }

@@ -21,7 +21,7 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 
 private val TfDemoColorScheme = lightColorScheme(
-    primary = Orange,
+    primary = LightBlue,
     secondary = DarkBlue,
     tertiary = DarkGrey,
     surface = VeryLightGrey,

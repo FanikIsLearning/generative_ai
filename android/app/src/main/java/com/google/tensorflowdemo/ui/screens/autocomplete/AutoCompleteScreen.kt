@@ -18,6 +18,7 @@ package com.google.tensorflowdemo.ui.screens.autocomplete
 
 import android.content.res.Configuration
 import androidx.annotation.StringRes
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -39,11 +40,15 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.layout.FixedScale
 import androidx.compose.ui.platform.ClipboardManager
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.platform.LocalUriHandler
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextRange
@@ -209,13 +214,18 @@ fun AutoCompleteScreenContent(
 ) {
     Box(
         modifier = modifier
-            .background(Color.White)
+            .background(Color.DarkGray)
             .fillMaxHeight()
     ) {
+        Image(
+                painter = painterResource(id = R.drawable.header_background),
+                contentDescription = stringResource(R.string.header_background_desc),
+                contentScale = FixedScale(.47f)
+        )
         Column(modifier = Modifier.fillMaxHeight()) {
             Column(
                 modifier = modifier
-                    .background(Color.White)
+                    .background(Color.DarkGray)
                     .padding(start = 16.dp, end = 16.dp, top = 20.dp)
             ) {
                 AutoCompleteTextField(

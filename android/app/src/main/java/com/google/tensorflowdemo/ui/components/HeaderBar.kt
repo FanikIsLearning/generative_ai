@@ -47,7 +47,7 @@ fun HeaderBar(
     Box(
         modifier = modifier
             .fillMaxWidth()
-            .background(Color.White)
+            .background(Color.DarkGray)
     ) {
         Image(
             painter = painterResource(id = R.drawable.header_background),
@@ -55,12 +55,12 @@ fun HeaderBar(
             contentScale = FixedScale(.47f),
         )
         Text(
-            text = label,
-            color = MaterialTheme.colorScheme.secondary,
-            style = MaterialTheme.typography.displayLarge,
-            modifier = Modifier
-                .align(Alignment.Center)
-                .offset(y = textOffset)
+                text = label,
+                color = Color.White,
+                modifier = Modifier
+                        .align(Alignment.Center)
+                        .offset(y = textOffset)
+                        .background(Color.DarkGray)
         )
         Divider(
             modifier = Modifier

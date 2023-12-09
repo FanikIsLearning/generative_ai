@@ -2,7 +2,7 @@
     <string name="app_name">Keras to TFL</string>
 
     <string name="header_background_desc">Header background</string>
-    <string name="header_autocomplete">Autocomplete</string>
+    <string name="header_autocomplete">StoryGpt</string>
 
     <string name="text_copied">Text copied</string>
     <string name="input_hint">Tap to begin typing your story…</string>
@@ -15,7 +15,7 @@
     <string name="window_size_slider_label">Apply context window</string>
     <string name="window_size_wordcount">{count} words</string>
 
-    <string name="about_title">Powered by KerasNLP and TensorFlow Lite</string>
+    <string name="about_title">Created by SiuWaiHui and HoiKitFan</string>
 
     <!--  Errors  -->
     <string name="error_model_not_initialized">Model not initialized</string>

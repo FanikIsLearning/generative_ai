@@ -18,7 +18,7 @@ package com.google.tensorflowdemo.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Orange = Color(0xFFFF6F00)
+val LightBlue = Color(0xFF0CD3FB)
 val DarkBlue = Color(0xFF425066)
 val DarkGrey = Color(0xFF616161)
 val MediumGrey = Color(0xFFCCCCCC)
