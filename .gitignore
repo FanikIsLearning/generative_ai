@@ -1,4 +1,5 @@
-*.autocomplete.tflite
+android/app/src/main/assets/autocomplete.tflite
+
 
 
 # Standard Android/JVM files
